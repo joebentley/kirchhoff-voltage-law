@@ -1,0 +1,27 @@
+{
+  "name": "kirchhoff-voltage-law",
+  "version": "0.0.1",
+  "description": "Visualisation of Kirchoff's Voltage Law",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joebentley/kirchhoff-voltage-law.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joebentley/kirchhoff-voltage-law/issues"
+  },
+  "homepage": "https://github.com/joebentley/kirchhoff-voltage-law#readme",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "eslint": "^3.3.0",
+    "eslint-config-standard": "^5.3.5",
+    "eslint-plugin-promise": "^2.0.1",
+    "eslint-plugin-standard": "^2.0.0",
+    "standard": "^7.1.2"
+  }
+}
