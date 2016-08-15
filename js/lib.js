@@ -4,7 +4,7 @@ var lib = {}
 
 ;(function (ns) {
   ns.Circuit = function (R1, R2, R3, V) {
-    var self = {
+    var circuit = {
       R1: R1,
       R2: R2,
       R3: R3,
@@ -12,18 +12,18 @@ var lib = {}
 
       // Update circuit variables
       update: function () {
-        self.I = self.V / (self.R1 + self.R2 + self.R3)
-        self.V1 = self.I * self.R1
-        self.V2 = self.I * self.R2
-        self.V3 = self.I * self.R3
+        circuit.I = circuit.V / (circuit.R1 + circuit.R2 + circuit.R3)
+        circuit.V1 = circuit.I * circuit.R1
+        circuit.V2 = circuit.I * circuit.R2
+        circuit.V3 = circuit.I * circuit.R3
 
-        return self
+        return circuit
       }
     }
 
-    self.update()
+    circuit.update()
 
-    return self
+    return circuit
   }
 
   /* Draw the circuit onto the screen. Warning! This is a huge block of drawing code! */
