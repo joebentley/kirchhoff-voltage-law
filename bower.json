@@ -1,0 +1,21 @@
+{
+  "name": "kirchhoff-voltage-law",
+  "description": "Visualisation of Kirchoff's Voltage Law",
+  "main": "index.js",
+  "authors": [
+    "Joe Bentley <joebentley10@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/joebentley/kirchhoff-voltage-law",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "two.js": "^0.6.0"
+  }
+}
