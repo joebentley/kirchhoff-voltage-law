@@ -1,4 +1,4 @@
-/* globals $ Two */
+/* globals $ Two MathJax */
 
 var lib = {}
 
@@ -96,13 +96,13 @@ var lib = {}
 
     // Add resistor labels
     $(this.canvasContainer).append('<div class="label" id="labelR1">\\(R_1 =\\)' +
-      '<input type="text" class="inputR" label="inputR1" value="' + this.circuit.R1 + '"/>' +
+      '<input ID="inputR1" type="text" class="inputR" value="' + this.circuit.R1 + '"/>' +
       '<div class="padTopOmega">\\(\\Omega\\)</div></div>')
     $(this.canvasContainer).append('<div class="label" id="labelR2">\\(R_2 =\\)' +
-      '<input type="text" class="inputR" label="inputR2" value="' + this.circuit.R2 + '"/>' +
+      '<input ID="inputR2" type="text" class="inputR" value="' + this.circuit.R2 + '"/>' +
       '<div class="padTopOmega">\\(\\Omega\\)</div></div>')
     $(this.canvasContainer).append('<div class="label" id="labelR3">\\(R_3 =\\)' +
-      '<input type="text" class="inputR" label="inputR3" value="' + this.circuit.R3 + '"/>' +
+      '<input ID="inputR3" type="text" class="inputR" value="' + this.circuit.R3 + '"/>' +
       '<div class="padTopOmega">\\(\\Omega\\)</div></div>')
 
     var resistorPadding = 90
@@ -138,6 +138,17 @@ var lib = {}
     two.update()
   }
 
+  /* Redraw changed labels */
+  ns.redrawLabels = function () {
+    $('#labelI').html('\\(I = ' + this.circuit.I.toPrecision(2) + ' A\\)')
+    $('#labelV1').html('\\(V_1 = ' + this.circuit.V1.toPrecision(2) + 'V\\)')
+    $('#labelV2').html('\\(V_2 = ' + this.circuit.V2.toPrecision(2) + 'V\\)')
+    $('#labelV3').html('\\(V_3 = ' + this.circuit.V3.toPrecision(2) + 'V\\)')
+
+    // Refresh MathJax
+    MathJax.Hub.Queue(['Typeset', MathJax.Hub, 'MatrixTransformations'])
+  }
+
   ns.runApp = function (canvasContainer) {
     this.canvasContainer = canvasContainer
 
@@ -146,8 +157,32 @@ var lib = {}
 
     var two = new Two({ width: 500, height: 600 }).appendTo(canvasContainer)
     ns.drawCircuit(two)
-    two.update()
 
+    var self = this
     // Setup event handlers for resistors
+    $('#inputR1').on('input', function () {
+      if (!isNaN(this.value) && this.value !== '') {
+        self.circuit.R1 = Number(this.value)
+        self.circuit.update()
+        // Redraw labels
+        ns.redrawLabels()
+      }
+    })
+    $('#inputR2').on('input', function () {
+      if (!isNaN(this.value) && this.value !== '') {
+        self.circuit.R2 = Number(this.value)
+        self.circuit.update()
+        // Redraw labels
+        ns.redrawLabels()
+      }
+    })
+    $('#inputR3').on('input', function () {
+      if (!isNaN(this.value) && this.value !== '') {
+        self.circuit.R3 = Number(this.value)
+        self.circuit.update()
+        // Redraw labels
+        ns.redrawLabels()
+      }
+    })
   }
 })(lib)
