@@ -1,4 +1,4 @@
-/* globals $ Two */
+/* globals $ Two MathJax */
 
 var lib = {}
 
@@ -136,6 +136,9 @@ var lib = {}
                  .css('top', distanceFromEdges + 3 * resistorSpacing + resistorOffset - textPadding.y)
 
     two.update()
+
+    // Refresh typsetting
+    MathJax.Hub.Queue(['Typeset', MathJax.Hub, 'Kirchhoff Voltage Law'])
   }
 
   /* Redraw changed labels */
