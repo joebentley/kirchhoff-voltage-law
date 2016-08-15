@@ -140,13 +140,11 @@ var lib = {}
 
   /* Redraw changed labels */
   ns.redrawLabels = function () {
-    $('#labelI').html('\\(I = ' + this.circuit.I.toPrecision(2) + ' A\\)')
-    $('#labelV1').html('\\(V_1 = ' + this.circuit.V1.toPrecision(2) + 'V\\)')
-    $('#labelV2').html('\\(V_2 = ' + this.circuit.V2.toPrecision(2) + 'V\\)')
-    $('#labelV3').html('\\(V_3 = ' + this.circuit.V3.toPrecision(2) + 'V\\)')
-
-    // Refresh MathJax
-    MathJax.Hub.Queue(['Typeset', MathJax.Hub, 'MatrixTransformations'])
+    // Edit MathJax elements directly to update values
+    $('#labelV1 .mjx-mrow > .mjx-mn > .mjx-char').html(this.circuit.V1.toPrecision(2))
+    $('#labelV2 .mjx-mrow > .mjx-mn > .mjx-char').html(this.circuit.V2.toPrecision(2))
+    $('#labelV3 .mjx-mrow > .mjx-mn > .mjx-char').html(this.circuit.V3.toPrecision(2))
+    $('#labelI .mjx-mrow > .mjx-mn > .mjx-char').html(this.circuit.I.toPrecision(2))
   }
 
   ns.runApp = function (canvasContainer) {
