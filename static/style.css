@@ -19,7 +19,7 @@ a:hover {
 }
 
 #diagramContainer {
-  width: 400px;
+  width: 500px;
   margin: 0 auto;
   position: relative;
 }
@@ -28,6 +28,18 @@ a:hover {
   position: absolute;
   color: #000;
   z-index: 1;
+}
+
+.inputR {
+  margin: 0 8px;
+  width: 2em;
+  position: relative;
+}
+
+.padTopOmega {
+  position: absolute;
+  margin-top: 1px;
+  display: inline;
 }
 
 .mjx-math {
