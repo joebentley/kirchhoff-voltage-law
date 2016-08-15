@@ -143,7 +143,7 @@ var lib = {}
 
   /* Redraw changed labels */
   ns.redrawLabels = function () {
-    // Edit MathJax elements directly to update values
+    // Edit MathJax elements directly to update values without having to re-render mathjax
     $('#labelV1 .mjx-mrow > .mjx-mn > .mjx-char').html(this.circuit.V1.toPrecision(2))
     $('#labelV2 .mjx-mrow > .mjx-mn > .mjx-char').html(this.circuit.V2.toPrecision(2))
     $('#labelV3 .mjx-mrow > .mjx-mn > .mjx-char').html(this.circuit.V3.toPrecision(2))
