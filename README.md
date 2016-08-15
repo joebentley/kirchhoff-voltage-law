@@ -8,7 +8,7 @@ View on [rawgit](https://rawgit.com/joebentley/kirchhoff-voltage-law/master/inde
 
 * ~~Draw circuit diagram~~
 
-* Add MathJaX support
+* ~~Add MathJaX support~~
 
 * Add static resistors and voltage and display current & voltage across each resistors
 

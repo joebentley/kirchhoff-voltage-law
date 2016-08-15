@@ -1,4 +1,4 @@
-/* globals Two */
+/* globals $ Two */
 
 var lib = {}
 
@@ -13,9 +13,17 @@ var lib = {}
     two.makeEllipse(source.x, source.y, source.radius, source.radius)
 
     // Add voltage source labels
-    two.scene.add(new Two.Text('V', source.x, source.y, textStyle))
-    two.scene.add(new Two.Text('+', source.x, source.y - source.labelOffset, textStyle))
-    two.scene.add(new Two.Text('-', source.x, source.y + source.labelOffset, textStyle))
+    var textPadding = { x: 6, y: 10 }
+
+    $(this.canvasContainer).append('<div class="label" id="labelSourceV">\\(V\\)</div>')
+    $(this.canvasContainer).append('<div class="label" id="labelSourcePlus">\\(+\\)</div>')
+    $(this.canvasContainer).append('<div class="label" id="labelSourceMinus">\\(-\\)</div>')
+
+    $('#labelSourceV').css('left', source.x - textPadding.x).css('top', source.y - textPadding.y)
+    $('#labelSourcePlus').css('left', source.x - textPadding.x)
+                         .css('top', source.y - source.labelOffset - textPadding.y)
+    $('#labelSourceMinus').css('left', source.x - textPadding.x)
+                          .css('top', source.y + source.labelOffset - textPadding.y)
 
     // Add circuit lines
     var distanceFromEdges = 100
@@ -44,8 +52,10 @@ var lib = {}
     arrowHead.fill = 'transparent'
 
     // Draw the current (I) label
-    two.scene.add(new Two.Text('I', arrowStartX + (arrowEndX - arrowStartX) / 2,
-      distanceFromEdges - 20, textStyle))
+    $(this.canvasContainer).append('<div class="label" id="labelI">\\(I\\)</div>')
+
+    $('#labelI').css('left', arrowStartX + (arrowEndX - arrowStartX) / 2 - textPadding.x)
+                .css('top', distanceFromEdges - 20 - textPadding.y)
 
     // Draw the resistors
     var resistorSpacing = circuitHeight / 4
@@ -61,29 +71,41 @@ var lib = {}
                       resistorWidth, resistorHeight)
 
     // Add resistor labels
-    two.scene.add(new Two.Text('R_1', source.x + circuitWidth - 40,
-      distanceFromEdges + resistorSpacing - resistorOffset, textStyle))
-    two.scene.add(new Two.Text('R_2', source.x + circuitWidth - 40,
-      distanceFromEdges + 2 * resistorSpacing, textStyle))
-    two.scene.add(new Two.Text('R_3', source.x + circuitWidth - 40,
-      distanceFromEdges + 3 * resistorSpacing + resistorOffset, textStyle))
+    $(this.canvasContainer).append('<div class="label" id="labelR1">\\(R_1\\)</div>')
+    $(this.canvasContainer).append('<div class="label" id="labelR2">\\(R_2\\)</div>')
+    $(this.canvasContainer).append('<div class="label" id="labelR3">\\(R_3\\)</div>')
+
+    $('#labelR1').css('left', source.x + circuitWidth - 40 - textPadding.x - 14)
+                 .css('top', distanceFromEdges + resistorSpacing - resistorOffset - textPadding.y)
+
+    $('#labelR2').css('left', source.x + circuitWidth - 40 - textPadding.x - 14)
+                 .css('top', distanceFromEdges + 2 * resistorSpacing - textPadding.y)
+
+    $('#labelR3').css('left', source.x + circuitWidth - 40 - textPadding.x - 14)
+                 .css('top', distanceFromEdges + 3 * resistorSpacing + resistorOffset - textPadding.y)
 
     // Add voltage labels
-    two.scene.add(new Two.Text('V_1', source.x + circuitWidth + 60,
-      distanceFromEdges + resistorSpacing - resistorOffset, textStyle))
-    two.scene.add(new Two.Text('V_2', source.x + circuitWidth + 60,
-      distanceFromEdges + 2 * resistorSpacing, textStyle))
-    two.scene.add(new Two.Text('V_3', source.x + circuitWidth + 60,
-      distanceFromEdges + 3 * resistorSpacing + resistorOffset, textStyle))
+    $(this.canvasContainer).append('<div class="label" id="labelV1">\\(V_1\\)</div>')
+    $(this.canvasContainer).append('<div class="label" id="labelV2">\\(V_2\\)</div>')
+    $(this.canvasContainer).append('<div class="label" id="labelV3">\\(V_3\\)</div>')
+
+    $('#labelV1').css('left', source.x + circuitWidth + 60 - textPadding.x - 14)
+                 .css('top', distanceFromEdges + resistorSpacing - resistorOffset - textPadding.y)
+
+    $('#labelV2').css('left', source.x + circuitWidth + 60 - textPadding.x - 14)
+                 .css('top', distanceFromEdges + 2 * resistorSpacing - textPadding.y)
+
+    $('#labelV3').css('left', source.x + circuitWidth + 60 - textPadding.x - 14)
+                 .css('top', distanceFromEdges + 3 * resistorSpacing + resistorOffset - textPadding.y)
 
     two.update()
   }
 
-  ns.runApp = function (canvasElem) {
-    var two = new Two({ width: 400, height: 600 }).appendTo(canvasElem)
+  ns.runApp = function (canvasContainer) {
+    this.canvasContainer = canvasContainer
 
+    var two = new Two({ width: 400, height: 600 }).appendTo(canvasContainer)
     ns.drawCircuit(two)
-
     two.update()
   }
 })(lib)

@@ -21,4 +21,15 @@ a:hover {
 #diagramContainer {
   width: 400px;
   margin: 0 auto;
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  color: #000;
+  z-index: 1;
+}
+
+.mjx-math {
+  color: #000;
 }
