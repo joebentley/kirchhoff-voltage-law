@@ -25,9 +25,11 @@ var lib = {}
     var circuitWidth = 200
     var circuitHeight = two.height - 2 * distanceFromEdges
     two.makeLine(source.x, distanceFromEdges, source.x + circuitWidth, distanceFromEdges)
-    two.makeLine(source.x, two.height - distanceFromEdges, source.x + circuitWidth, two.height - distanceFromEdges)
+    two.makeLine(source.x, two.height - distanceFromEdges,
+                 source.x + circuitWidth, two.height - distanceFromEdges)
 
-    two.makeLine(source.x + circuitWidth, distanceFromEdges, source.x + circuitWidth, two.height - distanceFromEdges)
+    two.makeLine(source.x + circuitWidth, distanceFromEdges,
+                 source.x + circuitWidth, two.height - distanceFromEdges)
 
     // Draw the current direction
     var arrowStartX = source.x + 50
@@ -42,7 +44,8 @@ var lib = {}
     arrowHead.fill = 'transparent'
 
     // Draw the current (I) label
-    two.scene.add(new Two.Text('I', arrowStartX + (arrowEndX - arrowStartX) / 2, distanceFromEdges - 20, textStyle))
+    two.scene.add(new Two.Text('I', arrowStartX + (arrowEndX - arrowStartX) / 2,
+      distanceFromEdges - 20, textStyle))
 
     // Draw the resistors
     var resistorSpacing = circuitHeight / 4
@@ -51,11 +54,11 @@ var lib = {}
     var resistorOffset = 20
 
     two.makeRectangle(source.x + circuitWidth, distanceFromEdges + resistorSpacing - resistorOffset,
-      resistorWidth, resistorHeight)
+                      resistorWidth, resistorHeight)
     two.makeRectangle(source.x + circuitWidth, distanceFromEdges + 2 * resistorSpacing,
-      resistorWidth, resistorHeight)
+                      resistorWidth, resistorHeight)
     two.makeRectangle(source.x + circuitWidth, distanceFromEdges + 3 * resistorSpacing + resistorOffset,
-      resistorWidth, resistorHeight)
+                      resistorWidth, resistorHeight)
 
     // Add resistor labels
     two.scene.add(new Two.Text('R_1', source.x + circuitWidth - 40,
