@@ -105,15 +105,15 @@ var lib = {}
       '<input ID="inputR3" type="text" class="inputR" value="' + this.circuit.R3 + '"/>' +
       '<div class="padTopOmega">\\(\\Omega\\)</div></div>')
 
-    var resistorPadding = 90
+    var resistorInputPadding = 100
 
-    $('#labelR1').css('left', source.x + circuitWidth - 40 - textPadding.x - resistorPadding)
+    $('#labelR1').css('left', source.x + circuitWidth - 40 - textPadding.x - resistorInputPadding)
                  .css('top', distanceFromEdges + resistorSpacing - resistorOffset - textPadding.y)
 
-    $('#labelR2').css('left', source.x + circuitWidth - 40 - textPadding.x - resistorPadding)
+    $('#labelR2').css('left', source.x + circuitWidth - 40 - textPadding.x - resistorInputPadding)
                  .css('top', distanceFromEdges + 2 * resistorSpacing - textPadding.y)
 
-    $('#labelR3').css('left', source.x + circuitWidth - 40 - textPadding.x - resistorPadding)
+    $('#labelR3').css('left', source.x + circuitWidth - 40 - textPadding.x - resistorInputPadding)
                  .css('top', distanceFromEdges + 3 * resistorSpacing + resistorOffset - textPadding.y)
 
     // Add voltage labels
