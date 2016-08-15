@@ -19,4 +19,4 @@ View on [rawgit](https://rawgit.com/joebentley/kirchhoff-voltage-law/master/inde
   * ~~Use fixed supply voltage and recalculate current & voltage across resistors in real-time~~
 
 
-* Display Kirchhoff's Voltage Law & equations in LaTeX
+* ~~Display Kirchhoff's Voltage Law & equations in LaTeX~~

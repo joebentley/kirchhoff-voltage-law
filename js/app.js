@@ -3,7 +3,7 @@
 /* Run app when all MathJax has loaded. */
 MathJax.Hub.Queue(function () {
   // Unhide diagram
-  $('#diagramContainer').css('visibility', '')
+  $('#hiddenMathJax').css('visibility', '')
 
   // Get diagram container and run app
   var elem = $('#diagramContainer')[0]

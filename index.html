@@ -21,9 +21,30 @@
     <script type="text/javascript" src="bower_components/two.js/build/two.js"></script>
 
     <h1>Kirchhoff's Voltage Law</h1>
-    <p>This is a interactive visualisation of <a href="https://en.wikipedia.org/wiki/Kirchhoff%27s_circuit_laws#Kirchhoff.27s_voltage_law_.28KVL.29" target="_blank">Kirchhoff's Voltage Law</a></p>
 
-    <div id="diagramContainer" style="visibility:hidden"></div>
+    <div id="hiddenMathJax" style="visibility:hidden">
+      <p><a href="https://en.wikipedia.org/wiki/Kirchhoff%27s_circuit_laws#Kirchhoff.27s_voltage_law_.28KVL.29"
+          target="_blank">Kirchhoff's Voltage Law</a>
+
+          tells us that the algebraic sum of the potentials about any closed loop in a circuit must be zero.
+
+          Since our circuit below is in series, the current through each resistor \(I\) is the same,
+          and hence we have,
+      </p>
+
+      \[V_s - V_1 - V_2 - V_3 = V_s - I R_1 - I R_2 - I R_3 = 0.\]
+
+      <p>From Ohm's law, we know that the voltage across each resistor is \(V_i = I R_i\).
+      We can rearrange this to find the current \(I\) through each resistor,</p>
+
+      \[I = \frac{V}{R_1 + R_2 + R_3}.\]
+
+      <p>Then the voltage across each resistor is found using Ohm's law,</p>
+
+      \[V_1 = I R_1, V_2 = I R_2, V_3 = I R_3.\]
+
+      <div id="diagramContainer"></div>
+    </div>
 
     <script type="text/javascript" src="js/lib.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
