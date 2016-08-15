@@ -10,13 +10,13 @@ View on [rawgit](https://rawgit.com/joebentley/kirchhoff-voltage-law/master/inde
 
 * ~~Add MathJaX support~~
 
-* Add static resistors and voltage and display current & voltage across each resistors
+* ~~Add static resistors and voltage and display current & voltage across each resistors~~
 
-* Add variable resistors
+* ~~Add variable resistors~~
 
-  * HTML textboxes over the top of circuit diagram
+  * ~~HTML textboxes over the top of circuit diagram~~
 
-  * Use fixed supply voltage and recalculate current & voltage across resistors in real-time
+  * ~~Use fixed supply voltage and recalculate current & voltage across resistors in real-time~~
 
 
 * Display Kirchhoff's Voltage Law & equations in LaTeX
