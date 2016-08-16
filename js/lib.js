@@ -29,7 +29,7 @@ var lib = {}
   /* Draw the circuit onto the screen. Warning! This is a huge block of drawing code! */
   ns.drawCircuit = function (two) {
     // Add voltage source
-    var source = { x: 100, y: 300, radius: 50, labelOffset: 30 }
+    var source = { x: 100, y: two.height / 2, radius: 50, labelOffset: 30 }
 
     two.makeEllipse(source.x, source.y, source.radius, source.radius)
 
@@ -49,7 +49,7 @@ var lib = {}
                           .css('top', source.y + source.labelOffset - textPadding.y)
 
     // Add circuit lines
-    var distanceFromEdges = 100
+    var distanceFromEdges = 30
     two.makeLine(source.x, source.y - source.radius, source.x, distanceFromEdges)
     two.makeLine(source.x, source.y + source.radius, source.x, two.height - distanceFromEdges)
 
@@ -157,7 +157,7 @@ var lib = {}
     // Make a new circuit
     this.circuit = ns.Circuit(4, 5, 6, 5)
 
-    var two = new Two({ width: 500, height: 600 }).appendTo(canvasContainer)
+    var two = new Two({ width: 500, height: 500 }).appendTo(canvasContainer)
     ns.drawCircuit(two)
 
     // Setup event handlers for resistors
