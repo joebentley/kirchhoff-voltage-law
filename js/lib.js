@@ -41,7 +41,7 @@ var lib = {}
     $(this.canvasContainer).append('<div class="label" id="labelSourcePlus">\\(+\\)</div>')
     $(this.canvasContainer).append('<div class="label" id="labelSourceMinus">\\(-\\)</div>')
 
-    $('#labelSourceV').css('left', source.x - textPadding.x - 25)
+    $('#labelSourceV').css('left', source.x - textPadding.x - 18)
                       .css('top', source.y - textPadding.y)
     $('#labelSourcePlus').css('left', source.x - textPadding.x)
                          .css('top', source.y - source.labelOffset - textPadding.y)
